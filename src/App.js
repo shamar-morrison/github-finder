@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Nav from './components/layout/Nav';
+import Header from './components/layout/Header';
+import UserItem from './components/users/UserItem';
+import SearchBar from './components/layout/SearchBar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	return (
+		<div className="App">
+			{/* <Nav /> */}
+			<div className="container">
+				<Header title={'Search Github'} />
+				<br />
+				<br />
+				<UserItem />
+			</div>
+		</div>
+	);
+};
 
 export default App;
