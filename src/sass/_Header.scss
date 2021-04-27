@@ -1,9 +1,10 @@
 .title {
-	position: relative;
-	text-align: center;
-	font-weight: normal;
-	font-size: 5rem;
-	color: lighten($dark-color, 30%);
-	top: 10vh;
-	letter-spacing: -2px;
+  position: relative;
+  text-align: center;
+  font-weight: 300;
+  font-size: 5rem;
+  margin-bottom: 70px;
+  color: $color-primary-100;
+  top: 10vh;
+  letter-spacing: -3px;
 }
