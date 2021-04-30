@@ -1,4 +1,4 @@
-import UserItem from './UserItem';
+import UserCard from './UserCard';
 import Spinner from '../layout/Spinner';
 
 // CSS styling
@@ -18,7 +18,7 @@ const Users = ({ users, loading, noUsers }) => {
     return (
       <div style={userStyling}>
         {users.map(user => (
-          <UserItem key={user.id} user={user} />
+          <UserCard key={user.id} user={user} />
         ))}
       </div>
     );

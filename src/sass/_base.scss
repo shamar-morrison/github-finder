@@ -36,6 +36,11 @@ input,
   transition-property: background-color, color;
 }
 
+a,
+button {
+  border-radius: 8px;
+}
+
 /* Utilities */
 .container {
   max-width: 1100px;
@@ -67,19 +72,19 @@ input,
 }
 
 .text-primary {
-  color: var(--primary-color);
+  color: $primary-color;
 }
 
 .text-dark {
-  color: var(--dark-color);
+  color: $dark-color;
 }
 
 .text-success {
-  color: var(--success-color);
+  color: $success-color;
 }
 
 .text-danger {
-  color: var(--danger-color);
+  color: $danger-color;
 }
 
 .text-center {
@@ -112,7 +117,7 @@ input,
   margin: 0.7rem 0;
   border-radius: 8px;
 
-  &:hover {
+  &:hover.hover {
     background-color: $color-primary-700;
   }
 }
@@ -203,8 +208,8 @@ input,
 
 .btn {
   display: inline-block;
-  background: var(--light-color);
-  color: rgb(0, 0, 0);
+  background: $color-primary-200;
+  color: $color-button-text;
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
   border: none;
@@ -233,28 +238,20 @@ input,
 
 .badge {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   padding: 0.2rem 0.7rem;
   text-align: center;
   margin: 0.3rem;
-  background: var(--light-color);
-  color: #333;
+  background: $color-primary-100;
+  color: $color-primary-700;
   border-radius: 5px;
-}
-
-.alert {
-  padding: 0.7rem;
-  margin: 1rem 0;
-  opacity: 0.9;
-  background: var(--light-color);
-  color: #333;
 }
 
 .btn-primary,
 .bg-primary,
 .badge-primary,
 .alert-primary {
-  background: var(--primary-color);
+  background: $primary-color;
   color: #fff;
 }
 
@@ -262,15 +259,15 @@ input,
 .bg-light,
 .badge-light,
 .alert-light {
-  background: var(--light-color);
-  color: #333;
+  background: $color-primary-100;
+  color: $color-primary-700;
 }
 
 .btn-dark,
 .bg-dark,
 .badge-dark,
 .alert-dark {
-  background: var(--dark-color);
+  background: $color-primary-700;
   color: #fff;
 }
 
@@ -278,7 +275,7 @@ input,
 .bg-danger,
 .badge-danger,
 .alert-danger {
-  background: var(--danger-color);
+  background: $danger-color;
   color: #fff;
 }
 
@@ -286,7 +283,7 @@ input,
 .bg-success,
 .badge-success,
 .alert-success {
-  background: var(--success-color);
+  background: $success-color;
   color: #fff;
 }
 
@@ -295,8 +292,8 @@ input,
 .badge-white,
 .alert-white {
   background: #fff;
-  color: #333;
-  border: #ccc solid 1px;
+  color: $color-primary-700;
+  border: $color-primary-200 solid 1px;
 }
 
 .btn:hover {
@@ -305,7 +302,7 @@ input,
 
 .bg-light,
 .badge-light {
-  border: #ccc solid 1px;
+  border: $color-primary-200 solid 1px;
 }
 
 /* Forms */
@@ -329,7 +326,7 @@ textarea {
   width: 100%;
   padding: 0.4rem;
   font-size: 1.2rem;
-  border: 1px solid #ccc;
+  border: 1px solid $color-primary-200;
 }
 
 input[type='submit'],
@@ -344,7 +341,7 @@ table td {
 }
 
 table th {
-  background: var(--light-color);
+  background: $color-primary-100;
 }
 
 /* Navbar */
@@ -370,7 +367,7 @@ table th {
 }
 
 .navbar a:hover {
-  color: var(--light-color);
+  color: $color-primary-100;
 }
 
 .navbar .welcome span {

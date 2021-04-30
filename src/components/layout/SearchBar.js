@@ -21,6 +21,7 @@ const SearchBar = props => {
     <div className="grid">
       <form onSubmit={handleSubmit}>
         <input
+          required
           type="text"
           name="text"
           className="search-bar"

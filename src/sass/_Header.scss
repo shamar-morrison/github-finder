@@ -1,9 +1,12 @@
 .title {
   position: relative;
   text-align: center;
+  margin: auto;
+  width: max-content;
   font-weight: 300;
   font-size: 5rem;
   margin-bottom: 70px;
+  cursor: pointer;
   color: $color-primary-100;
   top: 10vh;
   letter-spacing: -3px;
