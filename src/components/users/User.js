@@ -34,12 +34,7 @@ const User = ({ currentUser, loading, repos, match, getUser, getUserRepos }) => 
       <div className="card grid-2">
         {/* GRID 1 */}
         <div className="all-center">
-          <img
-            src={avatar_url}
-            className="round-img"
-            alt="avatar image"
-            style={{ width: '150px' }}
-          />
+          <img src={avatar_url} className="round-img" style={{ width: '150px' }} />
           <h1>{name}</h1>
           <p>Location: {location ? location : `Private/not set`}</p>
           <span className="hireable">

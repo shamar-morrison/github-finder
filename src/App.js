@@ -5,6 +5,17 @@ import SearchBar from './components/layout/SearchBar';
 import User from './components/users/User';
 import Users from './components/users/Users';
 
+let githubClientId;
+let githubClientSecret;
+
+if (process.env.NODE_ENV !== 'production') {
+  githubClientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
+  githubClientSecret = process.env.REACT_APP_GITHUB_CLIENT_SECRET;
+} else {
+  githubClientId = process.env.GITHUB_CLIENT_ID;
+  githubClientSecret = process.env.GITHUB_CLIENT_SECRET;
+}
+
 const App = () => {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
@@ -19,7 +30,7 @@ const App = () => {
 
         // fetch github users
         const res = await fetch(
-          `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+          `https://api.github.com/users?client_id=${githubClientId}&client_secret=${githubClientSecret}`
         );
         const data = await res.json();
         // throw error if data could not be fetched
@@ -44,7 +55,7 @@ const App = () => {
 
       // fetch github user
       const res = await fetch(
-        `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+        `https://api.github.com/users/${username}?client_id=${githubClientId}&client_secret=${githubClientSecret}`
       );
       const user = await res.json();
       // throw error if user could not be fetched
@@ -65,7 +76,7 @@ const App = () => {
       setIsLoading(true);
       // fetch user repos
       const res = await fetch(
-        `https://api.github.com/users/${username}/repos?per_page=6&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+        `https://api.github.com/users/${username}/repos?per_page=6&sort=created:asc&client_id=${githubClientId}&client_secret=${githubClientSecret}`
       );
       const data = await res.json();
       // throw error if repos could not be fetched
@@ -86,7 +97,7 @@ const App = () => {
       setNoUsers();
       // fetch github users
       const res = await fetch(
-        `https://api.github.com/search/users?q=${searchQuery}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+        `https://api.github.com/search/users?q=${searchQuery}&client_id=${githubClientId}&client_secret=${githubClientSecret}`
       );
       const data = await res.json();
       // throw error if data could not be fetched
