@@ -12,24 +12,27 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [noUsers, setNoUsers] = useState(false);
 
-  useEffect(async () => {
-    try {
-      setIsLoading(true);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        setIsLoading(true);
 
-      // fetch github users
-      const res = await fetch(
-        `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-      );
-      const data = await res.json();
-      // throw error if data could not be fetched
-      if (!data) throw new Error('Error fetching data');
-      console.debug('data', data);
-      // update state with user data
-      setIsLoading(false);
-      setUsers(data);
-    } catch (err) {
-      console.error(err.message);
+        // fetch github users
+        const res = await fetch(
+          `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+        );
+        const data = await res.json();
+        // throw error if data could not be fetched
+        if (!data) throw new Error('Error fetching data');
+        console.debug('data', data);
+        // update state with user data
+        setIsLoading(false);
+        setUsers(data);
+      } catch (err) {
+        console.error(err.message);
+      }
     }
+    fetchData();
   }, []);
 
   // Get single github user
