@@ -12,7 +12,9 @@ const userStyling = {
 const Users = ({ users, loading, noUsers }) => {
   if (loading) {
     return <Spinner />;
-  } else if (noUsers) {
+  }
+  if (noUsers) {
+    console.debug('noUsers', noUsers);
     return <h2 className="error">No Users found. Please try again.</h2>;
   } else {
     return (

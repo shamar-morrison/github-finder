@@ -1,20 +1,16 @@
-import { useState, useEffect, Component, Fragment } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Nav from './components/layout/Nav';
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/layout/Header';
-import UserCard from './components/users/UserCard';
 import SearchBar from './components/layout/SearchBar';
-import Users from './components/users/Users';
 import User from './components/users/User';
-import Spinner from './components/layout/Spinner';
+import Users from './components/users/Users';
 
 const App = () => {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [repos, setRepos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  let noUsers = false;
+  const [noUsers, setNoUsers] = useState(false);
 
   useEffect(async () => {
     try {
@@ -84,6 +80,7 @@ const App = () => {
     if (!searchQuery) return;
     try {
       setIsLoading(true);
+      setNoUsers();
       // fetch github users
       const res = await fetch(
         `https://api.github.com/search/users?q=${searchQuery}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
@@ -92,11 +89,13 @@ const App = () => {
       // throw error if data could not be fetched
       if (!data) throw new Error('Error fetching data');
       // if no users found
-      if (!data.items.length) this.noUsers = true;
+      if (data.items.length === 0) {
+        setNoUsers(true);
+        console.debug('data.items func', data.items);
+      }
       // update state with user data
       setIsLoading(false);
       setUsers(data.items);
-      noUsers = false;
     } catch (err) {
       console.error(err.message);
     }
