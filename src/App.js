@@ -23,6 +23,8 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [noUsers, setNoUsers] = useState(false);
 
+  const repoAmount = 6;
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -76,7 +78,7 @@ const App = () => {
       setIsLoading(true);
       // fetch user repos
       const res = await fetch(
-        `https://api.github.com/users/${username}/repos?per_page=6&sort=created:asc&client_id=${githubClientId}&client_secret=${githubClientSecret}`
+        `https://api.github.com/users/${username}/repos?per_page=${repoAmount}&sort=created:asc&client_id=${githubClientId}&client_secret=${githubClientSecret}`
       );
       const data = await res.json();
       // throw error if repos could not be fetched

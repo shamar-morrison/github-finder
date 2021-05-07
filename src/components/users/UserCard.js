@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 /** User Card  */
-const UserCard = ({ user: { avatar_url, login, html_url } }) => {
+const UserCard = ({ user: { avatar_url, login } }) => {
   return (
     <Link to={`/user/${login}`} target="_blank">
       <div className="card text-center hover">

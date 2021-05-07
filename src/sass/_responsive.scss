@@ -1,0 +1,37 @@
+@media screen and (max-width: 825px) {
+  .title {
+    width: auto;
+    font-size: 4rem;
+  }
+
+  input[type='text'].search-bar {
+    margin-top: 50px;
+  }
+}
+
+@media screen and (max-width: 595px) {
+  .users-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .users-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .title {
+    font-size: 3.2rem;
+  }
+
+  input[type='text'].search-bar {
+    padding: 0.4rem;
+    margin-top: 20px;
+  }
+
+  input[type='submit'] {
+    width: 100%;
+  }
+}

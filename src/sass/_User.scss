@@ -15,3 +15,10 @@
 .hireable {
   margin-top: 5px;
 }
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  margin-top: 40px;
+}

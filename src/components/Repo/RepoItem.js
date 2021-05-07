@@ -1,4 +1,5 @@
 const RepoItem = ({ repo }) => {
+  console.log('repo', repo);
   return (
     <a href={repo.html_url}>
       <div className="card hover">
