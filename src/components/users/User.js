@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Spinner from '../layout/Spinner';
 import Repo from '../Repo/Repo';
 
@@ -29,6 +30,9 @@ const User = ({ currentUser, loading, repos, match, getUser, getUserRepos }) => 
 
   return (
     <>
+      <Link to={'/'} className="back-btn">
+        Go Back
+      </Link>
       <div style={{ marginTop: '25px' }}></div>
       {/* GRID */}
       <div className="card grid-2">

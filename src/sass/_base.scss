@@ -31,7 +31,8 @@ a,
 li,
 button,
 input,
-.card {
+.card,
+.back-btn {
   transition: 150ms ease-in-out;
   transition-property: background-color, color;
 }
