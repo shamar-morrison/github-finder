@@ -22,7 +22,6 @@ const App = () => {
   const [repos, setRepos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [noUsers, setNoUsers] = useState(false);
-  const [isFailed, setIsFailed] = useState(false);
 
   const repoAmount = 6;
 
