@@ -70,6 +70,8 @@ const App = () => {
     }
   };
 
+  console.log('test');
+
   // Get user repos
   const getUserRepos = async username => {
     if (!username) return;
